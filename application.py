@@ -122,4 +122,4 @@ def sudoku(fname):
 
 
 if __name__ == "__main__":
-    application.run(debug=True)
+    application.run(debug=False)
