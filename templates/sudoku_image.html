@@ -1,0 +1,88 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+
+<!-- needed for sudoku table -->
+<style>
+  table { border-collapse: collapse; font-family: Calibri, sans-serif; }
+  colgroup, tbody { border: solid medium; }
+  td { border: solid thin; height: 1.4em; width: 1.4em; text-align: center; padding: 0; }
+</style>
+
+
+<div class = "container" >
+  <div class="row" >
+    
+    <!-- uploaded sudoku image -->
+    <div class="col-md-6">
+      <img src="{{image}}"
+           class="img-responsive" height="300px" width="300px" />
+    </div>
+    
+    <!-- generated sudoku image -->
+    <div class="col-md-6">
+      <table height="300px" width="300px">
+	
+	<colgroup><col><col><col>
+	<colgroup><col><col><col>
+	<colgroup><col><col><col>
+	  
+	  <tbody>
+	    {% for row in range(3) %}
+	    <tr> 
+	      {% for col in range(9) %}
+	      
+	      {% if initial_sudoku[row][col] != 0  %}
+	      <td> {{initial_sudoku[row][col]}}
+		{% elif solved_sudoku[row][col] != 0 %}
+	      <td bgcolor="#FFFFCC"> {{solved_sudoku[row][col]}}
+		{% else  %}
+	      <td bgcolor="#FFFFCC">
+		{% endif %}
+		{% endfor %}
+		{% endfor %}
+		
+	   <tbody>
+	     {% for row in range(3,6) %}
+	     <tr> 
+	       {% for col in range(9) %}
+	       {% if initial_sudoku[row][col] != 0  %}
+	       <td> {{initial_sudoku[row][col]}}
+		 {% elif solved_sudoku[row][col] != 0 %}
+	       <td bgcolor="#FFFFCC"> {{solved_sudoku[row][col]}}
+		 {% else  %}
+	       <td bgcolor="#FFFFCC">
+		 {% endif %}
+		 {% endfor %}
+		 {% endfor %}
+		 
+	    <tbody>
+	      {% for row in range(6,9) %}
+	      <tr> 
+		{% for col in range(9) %}
+		{% if initial_sudoku[row][col] != 0  %}
+	      <td> {{initial_sudoku[row][col]}}
+		{% elif solved_sudoku[row][col] != 0 %}
+	      <td bgcolor="#FFFFCC"> {{solved_sudoku[row][col]}}
+		{% else  %}
+	      <td bgcolor="#FFFFCC">
+		{% endif %}
+		{% endfor %}
+		{% endfor %}
+      </table>
+      
+      
+      <!-- submit button for sudoku -->
+      <div align = "left">
+	<form action = "" method = post >
+	  <input  type="submit" name="submit" value="Solve Sudoku" >
+	</form>
+      </div>
+      
+      
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}

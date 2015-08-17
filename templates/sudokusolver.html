@@ -1,0 +1,67 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+
+
+<div class="container" >
+  <div class = "container">
+
+	{% with messages = get_flashed_messages() %}
+	{% if messages %}
+	{% for message in messages %}
+	<h2 class = "flash"> {{ message }} </h2>
+	{% endfor %}
+	{% endif %}
+	{% endwith %}
+	
+
+    <div class="row featurette">
+      <div class = "container">
+      <div class="col-md-12">
+	
+	<!--<h2 class="featurette-heading"> {{message1}} <span class="text-muted">
+	    {{message2}}</span></h2>-->
+
+	<h2 class="featurette-heading"> Get Started!<span class="text-muted">
+	    Start by uploading a photo of your sudoku.</span></h2>
+	
+	<hr class="featurette-divider">
+	
+	<div class = "row">
+	  <div class = "col-md-6">
+	  <h3 class="featurette-heading"> Make sure that </h3>
+	  <p class="lead">
+	    <ol class = "lead"> 
+	      <li> The photo is clear </li>
+	      <li> The sudoku edge is visible </li>
+	      <li> The picture is cropped near the edge </li>
+	    </ol>
+	  </p>
+	  </div>
+
+
+	  <div class = "col-md-6">
+	  <h3 class="featurette-heading"> Select File </h3>
+	  <p class="lead"> 
+	    <form action="" method=post enctype=multipart/form-data>
+	      <div class="form-group">
+		<!--<label class="control-label" for="file">Select File</label>-->
+		<input type=file name=file id="file">
+	      </div>
+	      <div class="form-group">
+		<input type=submit value=Upload id="upload">
+	      </div>
+	    </form>
+	  </p>
+	  </div> <!-- form-group -->
+
+	</div> </div>
+	  
+      </div>
+      
+    </div>
+    
+  </div>
+
+</div>
+{% endblock %}
