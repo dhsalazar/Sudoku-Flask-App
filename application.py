@@ -17,22 +17,20 @@ application.config['SECRET_KEY'] = "hard to guess!string"
 @application.route('/index', methods=['GET', 'POST'])
 def index():
 
-    return "in the index"
-
-    # if request.method == 'POST':
-    #     # Get the name of the uploaded file
-    #     file = request.files['file']
+    if request.method == 'POST':
+        # Get the name of the uploaded file
+        file = request.files['file']
         
-    #     if file and allowed_file(file.filename):
+        if file and allowed_file(file.filename):
             
-    #         filename = secure_filename(file.filename)
-    #         file.save(os.path.join(application.config['UPLOAD_FOLDER'], filename))
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(application.config['UPLOAD_FOLDER'], filename))
 
 
-    #         return redirect(url_for('sudoku',
-    #                                 fname = filename))
+            return redirect(url_for('sudoku',
+                                    fname = filename))
 
-    # return render_template('templates/index.html')
+    return render_template('templates/index.html')
     
 
 
