@@ -62,8 +62,6 @@ def sudokusolver():
 
 @application.route('/image/<fname>', methods = ['GET', 'POST'])
 def sudoku(fname):
-    return 'in sudoku'
-
     f_path = os.path.join(application.config['UPLOAD_FOLDER'], fname)
     
 
