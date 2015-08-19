@@ -29,7 +29,7 @@ def index():
             return redirect(url_for('sudoku',
                                     fname = filename))
 
-    return render_template('index.html')
+    return render_template('templates/index.html')
     
 
 
