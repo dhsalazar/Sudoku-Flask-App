@@ -4,9 +4,9 @@
 
 <!-- needed for sudoku table -->
 <style>
-  table { border-collapse: collapse; font-family: Calibri, sans-serif; }
+  table { border-collapse: collapse; font-family: Calibri, sans-serif; padding: 0;}
   colgroup, tbody { border: solid medium; }
-  td { border: solid thin; height: 1.4em; width: 1.4em; text-align: center; padding: 0; }
+  td { border: solid thin; height: 1.4em; width: 1.4em; text-align: center; padding: 5px 5px 5px 5px; }
 </style>
 
 
@@ -22,53 +22,54 @@
     <!-- generated sudoku image -->
     <div class="col-md-6">
       <table height="300px" width="300px">
-	
 	<colgroup><col><col><col>
 	<colgroup><col><col><col>
 	<colgroup><col><col><col>
-	  
 	  <tbody>
 	    {% for row in range(3) %}
 	    <tr> 
 	      {% for col in range(9) %}
-	      
 	      {% if initial_sudoku[row][col] != 0  %}
-	      <td> {{initial_sudoku[row][col]}}
-		{% elif solved_sudoku[row][col] != 0 %}
-	      <td bgcolor="#FFFFCC"> {{solved_sudoku[row][col]}}
+	      <td> {{initial_sudoku[row][col]}} </td>
+		{% elif solved_sudoku[row][col] != 0 %} 
+	      <td bgcolor="#FFFFCC"> {{solved_sudoku[row][col]}} </td>
 		{% else  %}
-	      <td bgcolor="#FFFFCC">
+	      <td bgcolor="#FFFFCC"> </td>
 		{% endif %}
 		{% endfor %}
 		{% endfor %}
-		
+	    </tr>
+	  </tbody>
 	   <tbody>
 	     {% for row in range(3,6) %}
-	     <tr> 
+	     <tr>
 	       {% for col in range(9) %}
 	       {% if initial_sudoku[row][col] != 0  %}
-	       <td> {{initial_sudoku[row][col]}}
+	       <td> {{initial_sudoku[row][col]}} </td>
 		 {% elif solved_sudoku[row][col] != 0 %}
-	       <td bgcolor="#FFFFCC"> {{solved_sudoku[row][col]}}
+	       <td bgcolor="#FFFFCC"> {{solved_sudoku[row][col]}}</td>
 		 {% else  %}
-	       <td bgcolor="#FFFFCC">
+	       <td bgcolor="#FFFFCC"> </td>
 		 {% endif %}
 		 {% endfor %}
 		 {% endfor %}
-		 
+	     </tr>
+	   </tbody>
 	    <tbody>
 	      {% for row in range(6,9) %}
-	      <tr> 
+	      <tr>
 		{% for col in range(9) %}
 		{% if initial_sudoku[row][col] != 0  %}
-	      <td> {{initial_sudoku[row][col]}}
-		{% elif solved_sudoku[row][col] != 0 %}
-	      <td bgcolor="#FFFFCC"> {{solved_sudoku[row][col]}}
-		{% else  %}
-	      <td bgcolor="#FFFFCC">
-		{% endif %}
-		{% endfor %}
-		{% endfor %}
+		<td> {{initial_sudoku[row][col]}}</td>
+		  {% elif solved_sudoku[row][col] != 0 %}
+		<td bgcolor="#FFFFCC"> {{solved_sudoku[row][col]}}</td>
+		  {% else  %}
+		<td bgcolor="#FFFFCC"></td>
+		  {% endif %}
+		  {% endfor %}
+		  {% endfor %}
+	      </tr>
+	    </tbody>
       </table>
       
       
