@@ -33,6 +33,14 @@ body {
   /*padding: 10px;*/
 }
 
+/* START OF Change the Divider Bar */
+/* 2px=thickness, solid=style (dotted-dashed-solid-double-groove-ridge-inset-outset), red=color */
+.featurette-divider {
+border:         1px solid lightgrey;
+}
+/* END OF Change the Divider Bar */
+
+
 /* Genericon social icon styles
 ---------------------------------------------------- */
 .genericon-github:before,
